@@ -17,6 +17,7 @@ class TeamDetails extends StatelessWidget {
           child: RotatedBox(
             quarterTurns: 3,
             child: Container(
+              margin: const EdgeInsets.only(top: 10.0),
               alignment: Alignment.center,
               width: 40.0 * 5,
               padding: const EdgeInsets.symmetric(vertical: 0.0),
@@ -48,7 +49,9 @@ class TeamDetails extends StatelessWidget {
               // Area já configurada para lidar com textos grandes e com grande numero de times
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: teams.map((team) => Team(name: team.name, players: team.players)).toList(),
+                children: teams
+                    .map((team) => Team(name: team.name, players: team.players))
+                    .toList(),
               ),
             ),
           ),

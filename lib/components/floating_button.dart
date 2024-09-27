@@ -21,7 +21,7 @@ class AddTeamButton extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'ConcertOne',
             fontSize: 50,
-            height: 1.0,
+            height: 0.5,
           ),
         ),
       ),

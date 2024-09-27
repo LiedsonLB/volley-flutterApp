@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterprojeto_3/main.dart';
 
 class ModalAddTeams extends StatefulWidget {
   final Function(String, int) onAddTeam;
@@ -18,11 +19,34 @@ class _ModalAddTeamsState extends State<ModalAddTeams> {
     final int? players = int.tryParse(_playersController.text);
 
     if (name.isNotEmpty && players != null) {
-      widget.onAddTeam(name, players); // Corrigido para usar widget.onAddTeam
+      widget.onAddTeam(name, players);
       Navigator.pop(context);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Por favor, preencha todos os campos corretamente.')),
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text(
+              'Campos não preenchidos',
+            ),
+            content: const SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('Por favor preencha todas os campos corretamente.'),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Entendi'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
       );
     }
   }
@@ -34,13 +58,32 @@ class _ModalAddTeamsState extends State<ModalAddTeams> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Adicionar time',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 6, 40, 104),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Adicionar time',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 6, 40, 104),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.close, color: AppColors.colorDarkBlue),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100.0),
+                      side: const BorderSide(
+                          width: 0, color: Colors.transparent)),
+                  backgroundColor: Colors.grey[50],
+                  padding: const EdgeInsets.all(10),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 20.0),
           TextField(
@@ -57,7 +100,7 @@ class _ModalAddTeamsState extends State<ModalAddTeams> {
             ),
             keyboardType: TextInputType.number,
           ),
-          const SizedBox(height: 20.0),
+          const SizedBox(height: 40.0),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
