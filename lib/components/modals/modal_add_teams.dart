@@ -73,7 +73,6 @@ class _ModalAddTeamsState extends State<ModalAddTeams> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.close, color: AppColors.colorDarkBlue),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100.0),
@@ -82,6 +81,7 @@ class _ModalAddTeamsState extends State<ModalAddTeams> {
                   backgroundColor: Colors.grey[50],
                   padding: const EdgeInsets.all(10),
                 ),
+                child: Icon(Icons.close, color: AppColors.colorDarkBlue),
               ),
             ],
           ),

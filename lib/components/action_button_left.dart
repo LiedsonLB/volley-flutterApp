@@ -38,8 +38,8 @@ class ActionButtonLeft extends StatelessWidget {
             child: const Text(
               '+',
               style: TextStyle(
-                fontSize: 35.0,
-                height: 1.1,
+                fontSize: 25.0,
+                height: 1.3,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -47,7 +47,7 @@ class ActionButtonLeft extends StatelessWidget {
           const SizedBox(width: 15.0),
           Text(name,
               style: const TextStyle(
-                fontSize: 30.0,
+                fontSize: 25.0,
                 color: Colors.white,
               )),
         ],

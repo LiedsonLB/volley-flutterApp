@@ -14,7 +14,7 @@ class ActionButtonRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15.0),
+      padding: const EdgeInsets.only(bottom: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -22,7 +22,7 @@ class ActionButtonRight extends StatelessWidget {
           Text(name,
               textAlign: TextAlign.end,
               style: const TextStyle(
-                fontSize: 30.0,
+                fontSize: 25.0,
                 color: Colors.white,
               )),
           const SizedBox(width: 15.0),
@@ -47,8 +47,8 @@ class ActionButtonRight extends StatelessWidget {
             child: const Text(
               '+',
               style: TextStyle(
-                fontSize: 35.0,
-                height: 1.1,
+                fontSize: 25.0,
+                height: 1.3,
                 fontWeight: FontWeight.bold,
               ),
             ),

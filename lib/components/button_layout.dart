@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-class StartGame extends StatelessWidget {
+class ButtonLayout extends StatelessWidget {
   final VoidCallback onPressed;
-
-  const StartGame({super.key, required this.onPressed});
+  const ButtonLayout({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
