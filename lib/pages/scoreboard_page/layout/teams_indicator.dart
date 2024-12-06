@@ -11,7 +11,8 @@ class TeamsIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Column(
           children: [
@@ -31,9 +32,17 @@ class TeamsIndicator extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
               ),
             ),
-            Text(firstTeam,
-                style: const TextStyle(
-                    fontSize: 18, color: AppColors.colorDarkBlue)),
+            Container(
+              constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width * 0.15,
+              ),
+              child: Text(
+                firstTeam,
+                overflow: TextOverflow.ellipsis,
+                style:
+                const TextStyle(fontSize: 18, color: AppColors.colorDarkBlue),
+              ),
+            )
           ],
         ),
         Column(
@@ -54,11 +63,17 @@ class TeamsIndicator extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
               ),
             ),
-            Text(
-              secondTeam,
-              style:
-                  const TextStyle(fontSize: 18, color: AppColors.colorDarkBlue),
-            ),
+            Container(
+              constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width * 0.15,
+              ),
+              child: Text(
+                secondTeam,
+                overflow: TextOverflow.ellipsis,
+                style:
+                const TextStyle(fontSize: 18, color: AppColors.colorDarkBlue),
+              ),
+            )
           ],
         )
       ],

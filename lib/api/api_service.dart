@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-// esse arquivo era somente um teste para simular uma chamada de API (ignore)
-
 class ApiService {
   final String apiUrl = 'flutterprojectlb3.vercel.app/api/teams';
 

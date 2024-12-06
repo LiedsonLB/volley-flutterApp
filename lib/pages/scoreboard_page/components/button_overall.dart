@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterprojeto_3/main.dart';
 
 class ButtonOverAll extends StatelessWidget {
   final VoidCallback onPressed;
@@ -20,8 +21,8 @@ class ButtonOverAll extends StatelessWidget {
                 width: 2,
                 style: BorderStyle.solid,
               ),
-              backgroundColor: const Color.fromARGB(255, 6, 40, 104),
-              foregroundColor: Colors.grey[50],
+              backgroundColor: AppColors.colorDeepBlue,
+              foregroundColor: AppColors.colorWhite,
               padding:
               const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutterprojeto_3/components/floating_button.dart';
+import 'package:flutterprojeto_3/components/button_floating.dart';
 import 'package:flutterprojeto_3/components/header.dart';
 import 'package:flutterprojeto_3/components/modals/modal_add_teams.dart';
 import 'package:flutterprojeto_3/components/button_layout.dart';
-import 'package:flutterprojeto_3/components/team_details.dart';
+import 'package:flutterprojeto_3/components/modals/modal_select_teams.dart';
+import 'package:flutterprojeto_3/components/team_list.dart';
 import 'package:flutterprojeto_3/api/teams_data.dart';
-import 'package:flutterprojeto_3/pages/scoreboard_page/game_set_page.dart';
+import 'package:flutterprojeto_3/pages/scoreboard_page/game_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,6 +19,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late String team1;
+  late String team2;
+
   void _showAddTeamModal() {
     showDialog(
       context: context,
@@ -43,10 +47,30 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _showSelectTeamsModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ModalSelectTeams(
+          onTeamsSelected: (selectedTeam1, selectedTeam2) {
+            setState(
+              () {
+                team1 = selectedTeam1;
+                team2 = selectedTeam2;
+              },
+            );
+          },
+          startGame: _startGame,
+        );
+      },
+    );
+  }
+
   void _startGame() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HorizontalPage()),
+      MaterialPageRoute(
+          builder: (context) => GamePage(team1: team1, team2: team2)),
     );
   }
 
@@ -62,7 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 50.0),
             TeamDetails(teams: teams),
             const SizedBox(height: 70.0),
-            ButtonLayout(onPressed: _startGame),
+            Column(
+              children: [
+                Text(
+                  'Jogo Casado',
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.grey[50],
+                    fontFamily: 'ConcertOne',
+                  ),
+                ),
+                ButtonLayout(
+                  onPressed: _showSelectTeamsModal,
+                  text: 'Selecionar Times',
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ButtonLayout extends StatelessWidget {
+  final String text;
   final VoidCallback onPressed;
-  const ButtonLayout({super.key, required this.onPressed});
+
+  const ButtonLayout({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          'Jogo Casado',
-          style: TextStyle(
-            fontSize: 22,
-            color: Colors.grey[50],
-            fontFamily: 'ConcertOne',
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: ElevatedButton(
@@ -35,7 +29,7 @@ class ButtonLayout extends StatelessWidget {
             ),
             onPressed: onPressed,
             child: const Text(
-              'Iniciar',
+              'Selecionar Times',
               style: TextStyle(
                 fontSize: 24,
                 fontFamily: 'ConcertOne',

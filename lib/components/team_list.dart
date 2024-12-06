@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprojeto_3/components/team.dart';
+import 'package:flutterprojeto_3/components/team_card_name.dart';
 import 'package:flutterprojeto_3/api/teams_data.dart';
 
 class TeamDetails extends StatelessWidget {

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutterprojeto_3/pages/home_page/home_page.dart';
 
 void main() {
-  // mostrar grades de distancias dos widgets
-  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -17,8 +14,9 @@ void main() {
 class AppColors {
   static const Color colorBlue = Color(0xFF00ADC3);
   static const Color colorDarkBlue = Color(0xFF2B4A8E);
+  static const Color colorDeepBlue = Color.fromARGB(255, 6, 40, 104);
   static const Color colorLightRed = Color(0xFFF77859);
-  static const Color colorWhite = Color(0xFFC2F2F8);
+  static const Color colorWhite = Colors.white;
 }
 
 class MyApp extends StatelessWidget {

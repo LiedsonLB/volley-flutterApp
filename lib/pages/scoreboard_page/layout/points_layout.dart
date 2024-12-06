@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PointsLayout extends StatelessWidget {
-  const PointsLayout({super.key});
+  final int team1Points;
+  final int team2Points;
+
+  const PointsLayout({super.key, required this.team1Points, required this.team2Points});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +25,29 @@ class PointsLayout extends StatelessWidget {
                       width: 2,
                     ),
                   ),
-                  child: const Center(
-                    child: Text(
-                      '10',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Visibility(
+                        visible: team1Points > team2Points,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: Image.asset(
+                          'lib/img/ball.png',
+                          width: 30,
+                          height: 30,
+                        ),
                       ),
-                    ),
+                      Text(
+                        team1Points.toString(),
+                        style: const TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -50,15 +67,29 @@ class PointsLayout extends StatelessWidget {
                       width: 2,
                     ),
                   ),
-                  child: const Center(
-                    child: Text(
-                      '20',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Visibility(
+                        visible: team2Points > team1Points,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: Image.asset(
+                          'lib/img/ball.png',
+                          width: 30,
+                          height: 30,
+                        ),
                       ),
-                    ),
+                      Text(
+                        team2Points.toString(),
+                        style: const TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
